@@ -37,7 +37,6 @@ begin
   str(a, s); 
   while length(s) < 4 do 
     s := '0' + s;
-  //write(s);
   st:=st+s;
 end;
  
@@ -46,7 +45,6 @@ var
   i: integer;
 begin
   st:=st+a[a[0]];
-  //write(a[a[0]]);
   for i := a[0] - 1 downto 1 do 
     xwrite(a[i]); 
 end;

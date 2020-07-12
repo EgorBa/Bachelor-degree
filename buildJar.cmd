@@ -1,0 +1,4 @@
+javac -cp "files" modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\Impler.java modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\ImplerException.java modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\JarImpler.java java-solutions\ru\ifmo\rain\bazhenov\implementor\JarImplementor.java
+jar -cfm java-solutions\JarImplementor.jar java-solutions\META-INF\MANIFEST.MF java-solutions\ru\ifmo\rain\bazhenov\implementor\JarImplementor.class
+rm modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\Impler.class modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\ImplerException.class modules\info.kgeorgiy.java.advanced.implementor\info\kgeorgiy\java\advanced\implementor\JarImpler.class java-solutions\ru\ifmo\rain\bazhenov\implementor\JarImplementor.class
+pause

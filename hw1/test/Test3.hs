@@ -9,10 +9,10 @@ import Data.List.NonEmpty hiding (toList, fromList, tail, head, sort)
 hspecTest3 :: IO TestTree
 hspecTest3 = testSpec "Task3" spec
 
-empty = List
-one = Tree (1:|[]) List List
-oneTwo = Tree (1:|[1]) List List
-two = Tree (1:|[]) List $ Tree (2:|[]) List List
+empty = Leaf
+one = Tree (1:|[]) Leaf Leaf
+oneTwo = Tree (1:|[1]) Leaf Leaf
+two = Tree (1:|[]) Leaf $ Tree (2:|[]) Leaf Leaf
 
 spec :: Spec
 spec = do
@@ -57,7 +57,7 @@ spec = do
 
   describe "del" $
     it "returns tree without given value" $ do
-      show (del 1 one)    `shouldBe` "List"
+      isEmpty (del 1 one) `shouldBe` True
       show (del 1 oneTwo) `shouldBe` show one
       show (del 2 one)    `shouldBe` show one
       show (del 2 two)    `shouldBe` show one

@@ -5,13 +5,18 @@ module Task7
   , Endo(..)
   ) where
 
+-- | Type of NonEmpty List
 data NonEmpty a = a :| [a]
     deriving Show
 
 instance Semigroup (NonEmpty a) where
     (<>) (a :| as) (b :| bs) = a :| (as ++ [b] ++ bs)
 
-data ThisOrThat a b = This a | That b | Both a b
+-- | Type of two states or both
+data ThisOrThat a b 
+  = This a -- ^ First state
+  | That b -- ^ Second state
+  | Both a b -- ^ Both states
     deriving Show
 
 instance Semigroup (ThisOrThat a b) where
@@ -23,6 +28,7 @@ instance Semigroup (ThisOrThat a b) where
     (<>) (That b) (This a) = Both a b
     (<>) (That b) (Both a _) = Both a b
 
+-- | Type of name
 newtype Name = Name String
     deriving Show
 
@@ -37,6 +43,7 @@ instance Monoid Name where
         |null b           = Name a
         |otherwise        = Name (a ++ "." ++ b)
 
+-- | Type of endomorphism
 newtype Endo a = Endo { getEndo :: a -> a }
 
 instance  Semigroup (Endo a) where

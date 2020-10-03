@@ -15,10 +15,10 @@ empty :: Tree Int
 one :: Tree Int
 oneTwo :: Tree Int
 two :: Tree Int
-empty = List
-one = Tree (1:|[]) List List
-oneTwo = Tree (1:|[1]) List List
-two = Tree (1:|[]) List $ Tree (2:|[]) List List
+empty = Leaf
+one = Tree (1:|[]) Leaf Leaf
+oneTwo = Tree (1:|[1]) Leaf Leaf
+two = Tree (1:|[]) Leaf $ Tree (2:|[]) Leaf Leaf
 
 spec :: Spec
 spec = do

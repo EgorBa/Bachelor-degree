@@ -2,7 +2,7 @@ module Test3 where
 
 import Test.Tasty (TestTree)
 import Test.Tasty.Hspec (Spec, describe, it, shouldBe, shouldSatisfy, testSpec)
-import Task3
+import Task34
 import Data.List (sort)
 import Data.List.NonEmpty hiding (toList, fromList, tail, head, sort)
 
@@ -44,9 +44,10 @@ spec = do
 
   describe "fromList" $
     it "returns tree from given list of values" $ do
-      show (fromList [1])   `shouldBe` show one
-      show (fromList [1,1]) `shouldBe` show oneTwo
-      show (fromList [1,2]) `shouldBe` show two
+      toList (fromList [1])   `shouldBe` toList one
+      toList (fromList [1,1]) `shouldBe` toList oneTwo
+      toList (fromList [1,2]) `shouldBe` toList two
+      toList (fromList [1,2]) `shouldBe` toList (fromList [2,1])
 
   describe "toList" $
     it "returns list of values from given tree" $ do

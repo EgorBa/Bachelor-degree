@@ -3,7 +3,8 @@ module Test2 where
 import Test.Tasty (TestTree)
 import Test.Tasty.Hspec (Spec, describe, it, shouldBe, shouldSatisfy, testSpec)
 import Task2
-import Prelude hiding (sum, div, mod, even)
+import Test.Hspec.QuickCheck
+import Prelude hiding (sum)
 
 hspecTest2 :: IO TestTree
 hspecTest2 = testSpec "Task2" spec
@@ -57,25 +58,25 @@ spec = do
       less zero one `shouldBe` True
       less one one  `shouldBe` False
 
-  describe "eq" $
+  describe "even'" $
     it "returns true if number is even" $ do
-      even zero `shouldBe` True
-      even one  `shouldBe` False
-      even two  `shouldBe` True
+      even' zero `shouldBe` True
+      even' one  `shouldBe` False
+      even' two  `shouldBe` True
 
-  describe "div" $
+  describe "div'" $
     it "returns integer division of numbers" $ do
-      show (div zero one)  `shouldBe` show zero
-      show (div one one)   `shouldBe` show one
-      show (div two one)   `shouldBe` show two
-      show (div five two)  `shouldBe` show two
+      show (div' zero one)  `shouldBe` show zero
+      show (div' one one)   `shouldBe` show one
+      show (div' two one)   `shouldBe` show two
+      show (div' five two)  `shouldBe` show two
 
-  describe "mod" $
+  describe "mod'" $
     it "returns remainder of division of numbers" $ do
-      show (mod zero one)  `shouldBe` show zero
-      show (mod one one)   `shouldBe` show zero
-      show (mod two one)   `shouldBe` show zero
-      show (mod five two)  `shouldBe` show one
+      show (mod' zero one)  `shouldBe` show zero
+      show (mod' one one)   `shouldBe` show zero
+      show (mod' two one)   `shouldBe` show zero
+      show (mod' five two)  `shouldBe` show one
 
   describe "fromNatToInt" $
     it "returns Int from Nat" $ do
@@ -90,3 +91,43 @@ spec = do
       show (fromIntToNat 1) `shouldBe` show one
       show (fromIntToNat 2) `shouldBe` show two
       show (fromIntToNat 5) `shouldBe` show five
+
+  describe "property" $
+    prop "fromNatToInt ans fromIntToNat" $ \number -> do
+      fromNatToInt (fromIntToNat number) `shouldBe` max 0 number
+
+  describe "property" $
+    prop "sum" $ \s1 s2 -> do
+      fromNatToInt (sum (fromIntToNat s1) (fromIntToNat s2)) `shouldBe` max 0 s1 + max 0 s2
+
+  describe "property" $
+    prop "multiply" $ \s1 s2 -> do
+      fromNatToInt (multiply (fromIntToNat s1) (fromIntToNat s2)) `shouldBe` max 0 s1 * max 0 s2
+
+  describe "property" $
+    prop "sub" $ \s1 s2 -> do
+      fromNatToInt (sub (fromIntToNat s1) (fromIntToNat s2)) `shouldBe` max 0 (max 0 s1 - max 0 s2)
+
+  describe "property" $
+    prop "eq" $ \s1 s2 -> do
+      eq (fromIntToNat s1) (fromIntToNat s2) `shouldBe` max 0 s1 == max 0 s2
+
+  describe "property" $
+    prop "more" $ \s1 s2 -> do
+      more (fromIntToNat s1) (fromIntToNat s2) `shouldBe` max 0 s1 > max 0 s2
+
+  describe "property" $
+    prop "less" $ \s1 s2 -> do
+      less (fromIntToNat s1) (fromIntToNat s2) `shouldBe` max 0 s1 < max 0 s2
+
+  describe "property" $
+    prop "div'" $ \s1 s2 -> do
+      fromNatToInt (div' (fromIntToNat s1) (sum (fromIntToNat s2) one)) `shouldBe` div (max 0 s1) (max 0 s2 + 1)
+
+  describe "property" $
+    prop "mod'" $ \s1 s2 -> do
+      fromNatToInt (mod' (fromIntToNat s1) (sum (fromIntToNat s2) one)) `shouldBe` mod (max 0 s1) (max 0 s2 + 1)
+
+  describe "property" $
+    prop "even'" $ \s -> do
+      even' (fromIntToNat s) `shouldBe` even (max 0 s)

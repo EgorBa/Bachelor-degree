@@ -6,14 +6,14 @@ module Task2
   , eq
   , more
   , less
-  , div
-  , even
-  , mod
+  , div'
+  , even'
+  , mod'
   , fromIntToNat
   , fromNatToInt
   ) where
 
-import Prelude hiding (sum, div, mod, even)
+import Prelude hiding (sum)
 
 data Nat = Z | S Nat
     deriving Show
@@ -42,23 +42,23 @@ more (S x) (S y) = more x y
 more _ _ = False
 
 less :: Nat -> Nat -> Bool
-less x y = not $ (eq x y) || (more x y)
+less x y = not $ eq x y || more x y
 
-even :: Nat -> Bool
-even Z = True
-even (S x) = not (even x)
+even' :: Nat -> Bool
+even' Z = True
+even' (S x) = not (even' x)
 
-mod :: Nat -> Nat -> Nat
-mod x y
-    | (eq y Z)  = undefined
-    | otherwise = sub x $ multiply y $ div x y
+mod' :: Nat -> Nat -> Nat
+mod' x y
+    | eq y Z    = undefined
+    | otherwise = sub x $ multiply y $ div' x y
 
-div :: Nat -> Nat -> Nat
-div x y
-    | (eq y Z)   = undefined
-    | (eq x y)   = S Z
-    | (more x y) = S $ div (sub x y) y
-    | otherwise  = Z
+div' :: Nat -> Nat -> Nat
+div' x y
+    | eq y Z    = undefined
+    | eq x y    = S Z
+    | more x y  = S $ div' (sub x y) y
+    | otherwise = Z
 
 fromIntToNat :: Int -> Nat
 fromIntToNat 0 = Z
@@ -69,5 +69,5 @@ fromIntToNat x
 
 fromNatToInt :: Nat -> Int
 fromNatToInt x
-    | (eq x Z)  = 0
+    | eq x Z    = 0
     | otherwise = 1 + fromNatToInt (sub x (S Z))

@@ -9,7 +9,7 @@ data NonEmpty a = a :| [a]
     deriving Show
 
 instance Semigroup (NonEmpty a) where
-    (<>) (a :| as) (b :| bs) = (a :| (as ++ [b] ++ bs))
+    (<>) (a :| as) (b :| bs) = a :| (as ++ [b] ++ bs)
 
 data ThisOrThat a b = This a | That b | Both a b
     deriving Show
@@ -32,10 +32,10 @@ instance Semigroup Name where
 instance Monoid Name where
     mempty = Name ""
     mappend (Name a) (Name b)
-        |((length a) == 0) && ((length b) == 0) = mempty
-        |(length a) == 0                        = Name b
-        |(length b) == 0                        = Name a
-        |otherwise                              = Name (a ++ "." ++ b)
+        |null a && null b = mempty
+        |null a           = Name b
+        |null b           = Name a
+        |otherwise        = Name (a ++ "." ++ b)
 
 newtype Endo a = Endo { getEndo :: a -> a }
 
@@ -43,5 +43,5 @@ instance  Semigroup (Endo a) where
     (<>) (Endo f) (Endo g) = Endo (f . g)
 
 instance  Monoid (Endo a) where
-    mempty = (Endo id)
+    mempty = Endo id
     mappend (Endo f) (Endo g) = Endo (f . g)

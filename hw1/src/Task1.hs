@@ -31,4 +31,4 @@ isWeekend _   = False
 
 daysToParty :: DayWeek -> Int
 daysToParty Friday = 0
-daysToParty x = 1 + (daysToParty (nextDay x))
+daysToParty x = 1 + daysToParty (nextDay x)

@@ -5,7 +5,6 @@ module Types
   , isFile
   , printDirectory
   , printFile
-  , isExit
   , getDirSize
   , getName
   ) where
@@ -106,13 +105,6 @@ printDirectory dir
     putStrLn ("size : " ++ show (size dir))
     putStrLn ("countOfFiles : " ++ show (countOfFiles dir))
   | otherwise = return ()
-
--- | Returns True if Command is EXIT
-isExit 
-  :: Command -- ^ Given command
-  -> Bool -- ^ True if Command is EXIT
-isExit EXIT = True
-isExit _    = False
 
 -- | Returns size of folder
 getDirSize 

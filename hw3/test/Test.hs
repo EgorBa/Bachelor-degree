@@ -259,9 +259,9 @@ spec = do
       fs `shouldBe` rootDir
   describe "info" $
     it "show info about folder or file" $ do
-      (fp, fs) <- runCommand (INFO rootPath) rootPath rootDir
+      (fp, fs) <- runCommand (INFO dir1Path) rootPath rootDir
       fp `shouldBe` rootPath
       fs `shouldBe` rootDir
-      (fp, fs) <- runCommand (INFO (path file1)) rootPath rootDir
+      (fp, fs) <- runCommand (INFO (name file1)) rootPath rootDir
       fp `shouldBe` rootPath
       fs `shouldBe` rootDir

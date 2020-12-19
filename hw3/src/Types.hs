@@ -29,6 +29,7 @@ data Command
   | LS FilePath -- ^ Show content of folder
   | INFO FilePath -- ^ Show information about file or folder
   | EXIT -- ^ Save FileSystem
+  | RELOAD -- ^ Reload FileSystem
   deriving (Show)
 
 -- | Type of content in FileSystem

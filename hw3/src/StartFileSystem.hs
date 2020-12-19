@@ -91,9 +91,10 @@ readCommands = do
   input <- liftIO getLine
   case getParseResult $ execParserPure (prefs showHelpOnEmpty) opts (words input) of
     Just result -> do
-      if isExit result
-        then liftIO $ catch (saveFileSystem fs) handler
-        else do
+      case result of
+        EXIT   -> liftIO $ catch (saveFileSystem fs) handler
+        RELOAD -> liftIO $ startFileSystem (path fs)
+        _      -> do
           ans <- liftIO $ runCommand result curDir fs
           liftIO $ writeIORef context ans
           readCommands

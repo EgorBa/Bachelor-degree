@@ -8,14 +8,20 @@ import Criterion.Main (Benchmark, bench, nf)
 ht :: ConcurrentHashTable Int Int
 ht = performIO newCHT
 
+doOp :: Int -> (ConcurrentHashTable Int Int -> IO a) -> ConcurrentHashTable Int Int -> IO a
+doOp 0 op hashTable     = op hashTable
+doOp count op hashTable = do
+  _ <- op hashTable 
+  doOp (count - 1) op hashTable 
+
 putTest :: [Benchmark]
-putTest = map (benchmarkPut (putCHT 1 1)) [ht]
+putTest = map (benchmarkPut $ doOp 100000 (putCHT 1 1)) [ht]
 
 getTest :: [Benchmark]
-getTest = map (benchmarkGet (getCHT 1)) [ht]
+getTest = map (benchmarkGet $ doOp 100000 (getCHT 1)) [ht]
 
 sizeTest :: [Benchmark]
-sizeTest = map (benchmarkSize sizeCHT) [ht]
+sizeTest = map (benchmarkSize $ doOp 100000 sizeCHT) [ht]
 
 benchmark :: NFData a => String -> (ConcurrentHashTable Int Int -> IO a) -> ConcurrentHashTable Int Int -> Benchmark
 benchmark st func f = bench st (nf (performIO . func) f)
@@ -30,25 +36,22 @@ benchmarkSize :: NFData a => (ConcurrentHashTable Int Int -> IO a) -> Concurrent
 benchmarkSize = benchmark "size"
 
 -- My Result of this Bench
--- (each operation takes less than 1 ms, then my implementation supports more then 10^5 requests in second)
---
 -- benchmarking put test/put
--- time                 573.5 ns   (564.6 ns .. 591.2 ns)
---                      0.998 R²   (0.996 R² .. 1.000 R²)
--- mean                 568.3 ns   (565.3 ns .. 574.8 ns)
--- std dev              14.19 ns   (6.201 ns .. 26.79 ns)
+-- time                 51.90 ms   (45.19 ms .. 58.49 ms)
+--                      0.971 R²   (0.947 R² .. 0.996 R²)
+-- mean                 44.26 ms   (42.64 ms .. 47.51 ms)
+-- std dev              4.424 ms   (2.284 ms .. 7.441 ms)
 -- variance introduced by outliers: 34% (moderately inflated)
---
+--                 
 -- benchmarking get test/get
--- time                 541.8 ns   (535.7 ns .. 549.0 ns)
---                      0.999 R²   (0.999 R² .. 1.000 R²)
--- mean                 536.3 ns   (533.2 ns .. 540.7 ns)
--- std dev              12.42 ns   (8.493 ns .. 17.97 ns)
--- variance introduced by outliers: 30% (moderately inflated)
---
+-- time                 41.25 ms   (40.09 ms .. 43.64 ms)
+--                      0.994 R²   (0.987 R² .. 0.999 R²)
+-- mean                 39.96 ms   (39.29 ms .. 40.83 ms)
+-- std dev              1.831 ms   (1.399 ms .. 2.483 ms)
+-- variance introduced by outliers: 12% (moderately inflated)
+--                  
 -- benchmarking size test/size
--- time                 94.70 ns   (94.41 ns .. 94.98 ns)
+-- time                 2.279 ms   (2.273 ms .. 2.285 ms)
 --                      1.000 R²   (1.000 R² .. 1.000 R²)
--- mean                 94.73 ns   (94.50 ns .. 95.14 ns)
--- std dev              1.002 ns   (751.3 ps .. 1.338 ns)
--- variance introduced by outliers: 29% (moderately inflated)
+-- mean                 2.278 ms   (2.273 ms .. 2.282 ms)
+-- std dev              14.69 μs   (11.78 μs .. 19.22 μs)

@@ -8,20 +8,31 @@ import Criterion.Main (Benchmark, bench, nf)
 ht :: ConcurrentHashTable Int Int
 ht = performIO newCHT
 
-doOp :: Int -> (ConcurrentHashTable Int Int -> IO a) -> ConcurrentHashTable Int Int -> IO a
-doOp 0 op hashTable     = op hashTable
-doOp count op hashTable = do
-  _ <- op hashTable 
-  doOp (count - 1) op hashTable 
+manyOps :: Int -> Int -> ConcurrentHashTable Int Int -> IO ()
+manyOps mode x hashTable
+  | x < 0     = return ()
+  | otherwise = do
+  chooseOp mode x hashTable
+  manyOps mode (x - 1) hashTable
+  
+chooseOp :: Int -> Int -> ConcurrentHashTable Int Int -> IO ()
+chooseOp mode x hashTable
+  | mode == 1 = putCHT x x hashTable
+  | mode == 2 = do
+  _ <- getCHT x hashTable
+  return ()
+  | otherwise = do
+  _ <- sizeCHT hashTable
+  return ()
 
 putTest :: [Benchmark]
-putTest = map (benchmarkPut $ doOp 100000 (putCHT 1 1)) [ht]
+putTest = map (benchmarkPut $ manyOps 1 100000) [ht]
 
 getTest :: [Benchmark]
-getTest = map (benchmarkGet $ doOp 100000 (getCHT 1)) [ht]
+getTest = map (benchmarkGet $ manyOps 2 100000) [ht]
 
 sizeTest :: [Benchmark]
-sizeTest = map (benchmarkSize $ doOp 100000 sizeCHT) [ht]
+sizeTest = map (benchmarkSize $ manyOps 3 100000) [ht]
 
 benchmark :: NFData a => String -> (ConcurrentHashTable Int Int -> IO a) -> ConcurrentHashTable Int Int -> Benchmark
 benchmark st func f = bench st (nf (performIO . func) f)
@@ -37,21 +48,22 @@ benchmarkSize = benchmark "size"
 
 -- My Result of this Bench
 -- benchmarking put test/put
--- time                 51.90 ms   (45.19 ms .. 58.49 ms)
---                      0.971 R²   (0.947 R² .. 0.996 R²)
--- mean                 44.26 ms   (42.64 ms .. 47.51 ms)
--- std dev              4.424 ms   (2.284 ms .. 7.441 ms)
--- variance introduced by outliers: 34% (moderately inflated)
+-- time                 26.07 ms   (25.76 ms .. 26.43 ms)
+--                      0.999 R²   (0.998 R² .. 1.000 R²)
+-- mean                 25.98 ms   (25.84 ms .. 26.15 ms)
+-- std dev              371.4 μs   (296.7 μs .. 479.6 μs)
 --                 
 -- benchmarking get test/get
--- time                 41.25 ms   (40.09 ms .. 43.64 ms)
---                      0.994 R²   (0.987 R² .. 0.999 R²)
--- mean                 39.96 ms   (39.29 ms .. 40.83 ms)
--- std dev              1.831 ms   (1.399 ms .. 2.483 ms)
--- variance introduced by outliers: 12% (moderately inflated)
---                  
+-- time                 13.39 ms   (13.22 ms .. 13.59 ms)
+--                      0.999 R²   (0.998 R² .. 0.999 R²)
+-- mean                 13.59 ms   (13.46 ms .. 13.83 ms)
+-- std dev              470.3 μs   (279.1 μs .. 755.9 μs)
+-- variance introduced by outliers: 11% (moderately inflated)
+--                 
 -- benchmarking size test/size
--- time                 2.279 ms   (2.273 ms .. 2.285 ms)
---                      1.000 R²   (1.000 R² .. 1.000 R²)
--- mean                 2.278 ms   (2.273 ms .. 2.282 ms)
--- std dev              14.69 μs   (11.78 μs .. 19.22 μs)
+-- time                 2.119 ms   (2.102 ms .. 2.138 ms)
+--                      0.997 R²   (0.993 R² .. 0.999 R²)
+-- mean                 2.176 ms   (2.151 ms .. 2.226 ms)
+-- std dev              124.3 μs   (62.20 μs .. 226.7 μs)
+-- variance introduced by outliers: 41% (moderately inflated)
+

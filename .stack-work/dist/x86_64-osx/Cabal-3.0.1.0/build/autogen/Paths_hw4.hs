@@ -30,7 +30,7 @@ version = Version [0,1,0,0] []
 bindir, libdir, dynlibdir, datadir, libexecdir, sysconfdir :: FilePath
 
 bindir     = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/bin"
-libdir     = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/lib/x86_64-osx-ghc-8.8.4/hw4-0.1.0.0-6aYHIlpy0jQ4r5z5JxV1My"
+libdir     = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/lib/x86_64-osx-ghc-8.8.4/hw4-0.1.0.0-5uM4Io3UrlXB5v4agw3bcl"
 dynlibdir  = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/lib/x86_64-osx-ghc-8.8.4"
 datadir    = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/share/x86_64-osx-ghc-8.8.4/hw4-0.1.0.0"
 libexecdir = "/Users/egor.bazhenov/hw4/.stack-work/install/x86_64-osx/24d947b13379c1938c55a1c165f714842b104c5757fb42e8d7bb15014fd30688/8.8.4/libexec/x86_64-osx-ghc-8.8.4/hw4-0.1.0.0"

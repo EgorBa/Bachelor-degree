@@ -9,7 +9,7 @@ module Task3
 
 import Data.Hashable (Hashable, hash)
 import Data.Vector (Vector, replicateM, length, (!))
-import Control.Concurrent.STM.TMVar (isEmptyTMVar, newEmptyTMVar, putTMVar, takeTMVar)
+import Control.Concurrent.STM.TMVar (newEmptyTMVar, putTMVar, takeTMVar)
 import Control.Concurrent.STM.TVar (TVar, newTVar, readTVar, writeTVar, modifyTVar)
 import Control.Monad (when)
 import Control.Monad.STM (STM, atomically)
@@ -96,15 +96,17 @@ findElement
   -> STM (TVar (Maybe (k, v))) -- ^ TVar to result
 findElement key (HT vector) = do
   tMVar <- newEmptyTMVar
-  mapM_ (checkElements tMVar) iterateList
+  findElement' tMVar iterateList
   takeTMVar tMVar
     where
-      checkElements tMVar index = do
+      findElement' _ []               = error "Can't find free space"
+      findElement' tMVar (index : xs) = do
         element <- readTVar (vector ! index)
         if isJust element
-          then when ((fst $ fromJust element) == key) $ putTMVar tMVar (vector ! index)
-          else do
-            isEmpty <- isEmptyTMVar tMVar
-            when isEmpty $ putTMVar tMVar (vector ! index)
+          then do
+            if ((fst $ fromJust element) == key)
+              then putTMVar tMVar (vector ! index)
+              else findElement' tMVar xs
+          else putTMVar tMVar (vector ! index)
       expectedPosition = mod (hash key) (Data.Vector.length vector)
       iterateList = [expectedPosition .. Data.Vector.length vector - 1] ++ [0 .. expectedPosition - 1]

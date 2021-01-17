@@ -129,7 +129,7 @@ getString (Infection _) = "?"
 
 -- | Started Grid Man
 startPosition :: Grid Man
-startPosition = gridWrite (Disease diDays) ((\_ -> Health) <$> startGrid)
+startPosition = gridWrite (Disease diDays) ((const Health) <$> startGrid)
 
 -- | Started Grid Integer
 startGrid :: Grid Integer
@@ -183,6 +183,6 @@ simulationNDays n man
   | n == 0    = man
   | otherwise = simulationNDays (n - 1) (evolve man)
   
--- Code example to see result : putStr $ showSimulation (simulationNDays 15 startPosition) sizeOfGame
+-- Code example to see result : putStr $ showSimulation (simulationNDays \count of days\ startPosition) sizeOfGame
 -- You can change these parameters to see a different results of game : 
 -- imDays, diDays, inDays, infectionChance, sizeOfGame

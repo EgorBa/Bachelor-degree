@@ -1,15 +1,14 @@
 # hw4
 
-<<<<<<< HEAD
-####как запускать HalyavaScript code : 
+#### как запускать HalyavaScript code : 
     runST (join $ \your function\ <*> toVar \argument of function\)
 
-####как конвертировать HalyavaScript code to JS :
+#### как конвертировать HalyavaScript code to JS :
     putStr (showCode \your function\)
 
-####как запускать Comonad-19:
+#### как запускать Comonad-19:
     putStr (showSimulation (simulationNDays \count of days\ startPosition) sizeOfGame)
-####так же вы можете поменять эти парматры чтобы посмотреть другие варианты интерпритаций игры
+#### так же вы можете поменять эти парматры чтобы посмотреть другие варианты интерпритаций игры
 | Переменная       | За  что отвечает                   |
 | ---------------- |:----------------------------------:|
 | imDays           | сколько дней будет иммунитет       |

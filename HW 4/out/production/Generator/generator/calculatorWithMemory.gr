@@ -1,0 +1,59 @@
+grammar CalculatorWithMemory
+
+header {package calculatorWithMemory}
+
+globals [map = HashMap<String,Int>();]
+
+fields [value = 0;]
+
+start :
+    s SEMICOLON b ;
+
+b :
+    EPSILON | start ;
+
+s :
+    NAME EQUALS expr { map[NAME.text] = expr.value; println(NAME.text + " = " + expr.value + ";") } ;
+
+expr :
+    l { res.value = l.value } ;
+
+l :
+    t x(t.value) { res.value = x.value } ;
+
+x[acc : Int] :
+    PLUS t x(acc + t.value) { res.value = x.value } |
+    MINUS t x(acc - t.value) { res.value = x.value } |
+    EPSILON { res.value = acc };
+
+t :
+    p y(p.value) { res.value = y.value } ;
+
+y[acc : Int] :
+    MULTIPLY p y(acc * p.value) { res.value = y.value } |
+    DIVIDE p y(acc / p.value) { res.value = y.value } |
+    EPSILON { res.value = acc };
+
+p :
+    m { res.value = m.value } ;
+
+m :
+    MINUS v { res.value = -v.value }
+    | v { res.value = v.value } ;
+
+v :
+    NAME { res.value = map[NAME.text]!! } |
+    NUMBER { res.value = Integer.parseInt(NUMBER.text) } |
+    OPEN expr CLOSE { res.value = expr.value } ;
+
+NUMBER : "\d+";
+WHITESPACES : "[\n\r\t ]+" -> skip;
+PLUS : "\+";
+MINUS : "-";
+MULTIPLY : "\*";
+DIVIDE : "/";
+OPEN : "\(";
+CLOSE : "\)";
+EQUALS : "=";
+NAME : "[a-zA-Z]+";
+SEMICOLON: ";" ;

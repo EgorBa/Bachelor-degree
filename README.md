@@ -1,2 +1,2 @@
 # Math_Logic
-### [условия лабораторных](https://neerc.ifmo.ru/pcms2client/party/files/teaching/ml-2018.pdf)
+### [условия лабораторных](https://github.com/EgorBa/Math_Logic/blob/main/условия%20лабораторных.pdf)

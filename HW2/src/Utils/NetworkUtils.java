@@ -17,7 +17,7 @@ public class NetworkUtils {
     private static final String PARAM_START_TIME = "start_time=";
     private static final String PARAM_END_TIME = "end_time=";
 
-    public static URL generatedURL(String hashtag, int hours) {
+    public URL generatedURL(String hashtag, int hours) {
         assert hashtag != null && !hashtag.isBlank() : "Incorrect parameters";
 
         URI builtUri;
@@ -45,7 +45,7 @@ public class NetworkUtils {
         return url;
     }
 
-    public static String getResponseFromURL(URL url) {
+    public String getResponseFromURL(URL url) {
         assert url != null : "Empty URL";
 
         HttpURLConnection urlConnection;
@@ -74,7 +74,7 @@ public class NetworkUtils {
         }
     }
 
-    public static int getCountFromResponse(String response) {
+    public int getCountFromResponse(String response) {
         assert response != null && !response.isBlank() : "Empty response";
         try {
             return new JSONObject(response).getJSONObject("response").getInt("total_count");

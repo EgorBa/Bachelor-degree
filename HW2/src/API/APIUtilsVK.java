@@ -5,6 +5,15 @@ import Utils.NetworkUtils;
 import java.net.URL;
 
 public class APIUtilsVK implements APIUtils {
+    private final NetworkUtils networkUtils;
+
+    public APIUtilsVK() {
+        networkUtils = new NetworkUtils();
+    }
+
+    public APIUtilsVK(NetworkUtils networkUtils) {
+        this.networkUtils = networkUtils;
+    }
 
     @Override
     public int[] getHoursArray(int hours, String hashtag) {
@@ -17,11 +26,11 @@ public class APIUtilsVK implements APIUtils {
     }
 
     int getTagsInHour(int i, String hashtag) {
-        URL s = NetworkUtils.generatedURL(hashtag, i);
+        URL s = networkUtils.generatedURL(hashtag, i);
         if (s != null) {
-            String response = NetworkUtils.getResponseFromURL(s);
+            String response = networkUtils.getResponseFromURL(s);
             if (response != null) {
-                return NetworkUtils.getCountFromResponse(response);
+                return networkUtils.getCountFromResponse(response);
             }
         }
         return 0;

@@ -17,7 +17,7 @@ public class APITest {
 
     final String RESPONSE = "response";
     final String HASHTAG = "hashtag";
-    APIUtils stubAPIUtils;
+    APIUtils APIUtils;
     NetworkUtils networkUtils;
     int[] expectedArray = {0, 1, 2, 3, 4, 5};
 
@@ -30,25 +30,25 @@ public class APITest {
             Mockito.when(networkUtils.getResponseFromURL(url)).thenReturn(RESPONSE + i);
             Mockito.when(networkUtils.getCountFromResponse(RESPONSE + i)).thenReturn(i);
         }
-        stubAPIUtils = new APIUtilsVK(networkUtils);
+        APIUtils = new APIUtilsVK(networkUtils);
     }
 
     @Test
     public void testGetArray() {
-        int[] array = stubAPIUtils.getHoursArray(expectedArray.length, HASHTAG);
-        System.out.println(Arrays.toString(array));
+        int[] array = APIUtils.getHoursArray(expectedArray.length, HASHTAG);
         Mockito.verify(networkUtils, Mockito.times(expectedArray.length)).getCountFromResponse(Mockito.anyString());
+        Mockito.verify(networkUtils, Mockito.times(expectedArray.length)).generatedURL(Mockito.anyString(), Mockito.anyInt());
         assertEquals(Arrays.toString(array), Arrays.toString(expectedArray));
     }
 
     @Test(expected = AssertionError.class)
     public void testIncorrectLength() {
-        stubAPIUtils.getHoursArray(0, HASHTAG);
+        APIUtils.getHoursArray(0, HASHTAG);
     }
 
     @Test(expected = AssertionError.class)
     public void testIncorrectHashtag() {
-        stubAPIUtils.getHoursArray(expectedArray.length, null);
+        APIUtils.getHoursArray(expectedArray.length, null);
     }
 
 }

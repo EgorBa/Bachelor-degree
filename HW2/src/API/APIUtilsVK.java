@@ -25,7 +25,7 @@ public class APIUtilsVK implements APIUtils {
         return array;
     }
 
-    int getTagsInHour(int i, String hashtag) {
+    private int getTagsInHour(int i, String hashtag) {
         URL s = networkUtils.generatedURL(hashtag, i);
         if (s != null) {
             String response = networkUtils.getResponseFromURL(s);

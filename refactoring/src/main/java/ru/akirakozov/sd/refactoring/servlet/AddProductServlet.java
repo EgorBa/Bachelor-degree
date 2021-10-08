@@ -1,5 +1,7 @@
 package ru.akirakozov.sd.refactoring.servlet;
 
+import ru.akirakozov.sd.refactoring.utils.SQLUtils;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -19,10 +21,8 @@ public class AddProductServlet extends ServletInterface {
 
         try {
             try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                String sql = "INSERT INTO PRODUCT " +
-                        "(NAME, PRICE) VALUES (\"" + name + "\"," + price + ")";
                 Statement stmt = c.createStatement();
-                stmt.executeUpdate(sql);
+                stmt.executeUpdate(SQLUtils.addProduct(name, price));
                 stmt.close();
             }
         } catch (Exception e) {

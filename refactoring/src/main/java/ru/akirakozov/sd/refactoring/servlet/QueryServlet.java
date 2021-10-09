@@ -13,6 +13,7 @@ import static ru.akirakozov.sd.refactoring.resources.Resources.*;
  * @author akirakozov
  */
 public class QueryServlet extends Servlet {
+
     public QueryServlet(DatabaseUtils dataBaseUtils) {
         super(dataBaseUtils);
     }

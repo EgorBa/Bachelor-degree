@@ -5,15 +5,14 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
 
+import static ru.akirakozov.sd.refactoring.resources.Resources.*;
+
 public class DataBaseUtils {
 
-    private static final String DATABASE = "jdbc:sqlite:test.db";
     private static final String HTML_BODY_OPEN = "<html><body>";
     private static final String HTML_BODY_CLOSE = "</body></html>";
     private static final String BR = "</br>";
     private static final String HTML_TEXT = "text/html";
-    private static final String NAME = "name";
-    private static final String PRICE = "price";
 
     public static void requestToDB(HttpServletResponse response,
                                    String SQLCommand,
@@ -40,7 +39,7 @@ public class DataBaseUtils {
 
     public static void showUnknownCommand(HttpServletResponse response, String command) {
         try (PrintWriter out = response.getWriter()) {
-            out.println("Unknown command: " + command);
+            out.println(UNKNOWN_COMMAND + command);
         } catch (IOException e) {
             System.err.println("Can't show result");
             e.printStackTrace();

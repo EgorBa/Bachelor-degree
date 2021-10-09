@@ -12,6 +12,7 @@ public class DatabaseTests {
 
     Statement stmt;
     Connection c;
+    ResultSet rs;
     String PROD1 = "Product1";
     String PROD2 = "Product2";
     int PRICE1 = 10;
@@ -29,12 +30,13 @@ public class DatabaseTests {
 
     @After
     public void closing() throws SQLException {
+        rs.close();
         stmt.close();
     }
 
     @Test
     public void testGetAll() throws SQLException {
-        ResultSet rs = stmt.executeQuery(SQLUtils.getAll());
+        rs = stmt.executeQuery(SQLUtils.getAll());
         int count = 0;
         while (rs.next()) {
             count++;
@@ -44,27 +46,27 @@ public class DatabaseTests {
 
     @Test
     public void testGetExpensive() throws SQLException {
-        ResultSet rs = stmt.executeQuery(SQLUtils.getExpensiveProduct());
+        rs = stmt.executeQuery(SQLUtils.getExpensiveProduct());
         assertEquals(PROD2, rs.getString(NAME));
         assertEquals(PRICE2, rs.getInt(PRICE));
     }
 
     @Test
     public void testGetChip() throws SQLException {
-        ResultSet rs = stmt.executeQuery(SQLUtils.getChipProduct());
+        rs = stmt.executeQuery(SQLUtils.getChipProduct());
         assertEquals(PROD1, rs.getString(NAME));
         assertEquals(PRICE1, rs.getInt(PRICE));
     }
 
     @Test
     public void testGetCount() throws SQLException {
-        ResultSet rs = stmt.executeQuery(SQLUtils.getCount());
+        rs = stmt.executeQuery(SQLUtils.getCount());
         assertEquals(2, rs.getInt(1));
     }
 
     @Test
     public void testGetSum() throws SQLException {
-        ResultSet rs = stmt.executeQuery(SQLUtils.getSum());
+        rs = stmt.executeQuery(SQLUtils.getSum());
         assertEquals(PRICE1 + PRICE2, rs.getInt(1));
     }
 

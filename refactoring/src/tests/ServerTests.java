@@ -5,31 +5,20 @@ import ru.akirakozov.sd.refactoring.servlet.Servlet;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
-
 public class ServerTests {
 
-    Servlet servlet;
-    int response;
+    Servlet servletStub;
 
     @Before
-    public void prepare(){
-        servlet = Mockito.mock(Servlet.class);
-        try {
-            Mockito.doNothing().when(servlet).doGet(Mockito.any(), Mockito.any());
-        } catch (IOException ignored) {
-        }
+    public void prepare() throws IOException {
+        servletStub = Mockito.mock(Servlet.class);
+        Mockito.doNothing().when(servletStub).doGet(Mockito.any(), Mockito.any());
     }
 
     @Test
-    public void simpleTest() {
-        try {
-            servlet.doGet(null, null);
-            response = 1;
-        } catch (IOException e) {
-            response = 0;
-        }
-        assertEquals(1, response);
+    public void simpleTest() throws IOException {
+        servletStub.doGet(null, null);
+        Mockito.verify(servletStub, Mockito.times(1)).doGet(Mockito.any(), Mockito.any());
     }
 
 }

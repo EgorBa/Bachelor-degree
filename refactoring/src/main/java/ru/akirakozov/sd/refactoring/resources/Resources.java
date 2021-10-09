@@ -1,6 +1,7 @@
 package ru.akirakozov.sd.refactoring.resources;
 
 public class Resources {
+    public static final String DATABASE = "jdbc:sqlite:test.db";
     public static final String NAME = "name";
     public static final String PRICE = "price";
     public static final String OK = "OK";
@@ -16,4 +17,5 @@ public class Resources {
     public static final String ADD_PRODUCT = "/add-product";
     public static final String GET_PRODUCTS = "/get-products";
     public static final String QUERY = "/query";
+    public static final String UNKNOWN_COMMAND = "Unknown command: ";
 }

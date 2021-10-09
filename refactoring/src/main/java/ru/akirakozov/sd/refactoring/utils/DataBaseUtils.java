@@ -81,7 +81,7 @@ public class DataBaseUtils {
                     case EMPTY:
                         break;
                     default:
-                        System.err.println("Unknown resultType");
+                        System.err.println("Unknown resultType " + resultType);
                         return;
                 }
             }

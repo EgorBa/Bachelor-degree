@@ -21,8 +21,7 @@ public class HTMLUtils {
                                           String title,
                                           ResultType resultType) {
         response.setContentType(HTML_TEXT);
-        try {
-            PrintWriter out = response.getWriter();
+        try (PrintWriter out = response.getWriter()) {
             out.println(HTML_BODY_OPEN);
             if (title != null) {
                 out.println(title);

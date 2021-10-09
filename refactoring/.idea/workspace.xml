@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="add DatabaseTests for DB and SQLUtils">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/DataBaseUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/ResultType.java" afterDir="false" />
+    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="some unimportant fix">
+      <change afterPath="$PROJECT_DIR$/src/tests/HTMLTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/HTMLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/HTMLUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +18,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -49,7 +43,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.HTMLTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.akirakozov.sd.refactoring.Main" />
       <module name="refactoring" />
@@ -63,15 +57,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,20 +77,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ServerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DatabaseUtilsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="refactoring" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ServerTests" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseUtilsTests" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HTMLTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HTMLTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HTMLTests.generaeHTMLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HTMLTests" />
+      <option name="METHOD_NAME" value="generaeHTMLTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.HTMLTests" />
+        <item itemvalue="JUnit.HTMLTests.generaeHTMLTest" />
         <item itemvalue="JUnit.DatabaseTests" />
-        <item itemvalue="JUnit.ServerTests" />
+        <item itemvalue="JUnit.DatabaseUtilsTests" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -114,7 +127,8 @@
       <workItem from="1633114077750" duration="332000" />
       <workItem from="1633257749324" duration="31000" />
       <workItem from="1633675772548" duration="5083000" />
-      <workItem from="1633784463089" duration="11194000" />
+      <workItem from="1633784463089" duration="16283000" />
+      <workItem from="1633801379776" duration="1089000" />
     </task>
     <task id="LOCAL-00001" summary="add simple tests">
       <created>1633679734604</created>
@@ -137,7 +151,56 @@
       <option name="project" value="LOCAL" />
       <updated>1633786235871</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add DatabaseUtils to extract common logic from methods with Database">
+      <created>1633795911992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633795911992</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add Resources and rename ServletInterface to Servlet">
+      <created>1633797068839</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633797068839</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix tests + some small fix">
+      <created>1633797724096</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633797724096</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add comments to Enum + some fix">
+      <created>1633798278206</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633798278206</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add HTMLUtils">
+      <created>1633798905978</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633798905978</updated>
+    </task>
+    <task id="LOCAL-00009" summary="make methods of DatabaseUtils non static and add DatabaseUtilsTests &#10;the same structure with DatabaseTests, but adding elements doing DatabaseUtils">
+      <created>1633800670154</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633800670154</updated>
+    </task>
+    <task id="LOCAL-00010" summary="some unimportant fix">
+      <created>1633800775334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1633800775334</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +222,13 @@
     <MESSAGE value="add simple tests" />
     <MESSAGE value="create SQLUtils for SQL commands" />
     <MESSAGE value="add DatabaseTests for DB and SQLUtils" />
-    <option name="LAST_COMMIT_MESSAGE" value="add DatabaseTests for DB and SQLUtils" />
+    <MESSAGE value="add DatabaseUtils to extract common logic from methods with Database" />
+    <MESSAGE value="add Resources and rename ServletInterface to Servlet" />
+    <MESSAGE value="fix tests + some small fix" />
+    <MESSAGE value="add comments to Enum + some fix" />
+    <MESSAGE value="add HTMLUtils" />
+    <MESSAGE value="make methods of DatabaseUtils non static and add DatabaseUtilsTests &#10;the same structure with DatabaseTests, but adding elements doing DatabaseUtils" />
+    <MESSAGE value="some unimportant fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="some unimportant fix" />
   </component>
 </project>

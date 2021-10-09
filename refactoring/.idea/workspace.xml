@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="HW3">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_4_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/mockito_all_1_9_5.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/ServletInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/tests/ServerTests.java" afterDir="false" />
+    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="create SQLUtils for SQL commands">
+      <change afterPath="$PROJECT_DIR$/src/tests/DatabaseTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/refactoring.iml" beforeDir="false" afterPath="$PROJECT_DIR$/refactoring.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/SQLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/SQLUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +17,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -50,7 +42,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.ServerTests">
+  <component name="RunManager" selected="JUnit.DatabaseTests">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.akirakozov.sd.refactoring.Main" />
       <module name="refactoring" />
@@ -64,12 +56,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -86,6 +89,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.ServerTests" />
         <item itemvalue="Application.Main" />
       </list>
@@ -102,8 +106,24 @@
       <workItem from="1633113505023" duration="172000" />
       <workItem from="1633114077750" duration="332000" />
       <workItem from="1633257749324" duration="31000" />
-      <workItem from="1633675772548" duration="3233000" />
+      <workItem from="1633675772548" duration="5083000" />
+      <workItem from="1633784463089" duration="1711000" />
     </task>
+    <task id="LOCAL-00001" summary="add simple tests">
+      <created>1633679734604</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633679734604</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create SQLUtils for SQL commands">
+      <created>1633680280409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633680280409</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,5 +140,10 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add simple tests" />
+    <MESSAGE value="create SQLUtils for SQL commands" />
+    <option name="LAST_COMMIT_MESSAGE" value="create SQLUtils for SQL commands" />
   </component>
 </project>

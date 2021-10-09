@@ -33,4 +33,8 @@ public class SQLUtils {
         return "SELECT COUNT(*) FROM PRODUCT";
     }
 
+    public static String dropAll(){
+        return "DROP TABLE IF EXISTS PRODUCT";
+    }
+
 }

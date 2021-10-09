@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author akirakozov
  */
-public class GetProductsServlet extends ServletInterface {
+public class GetProductsServlet extends Servlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {

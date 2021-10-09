@@ -6,20 +6,18 @@ import ru.akirakozov.sd.refactoring.utils.SQLUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
+
+import static ru.akirakozov.sd.refactoring.resources.Resources.*;
 
 /**
  * @author akirakozov
  */
-public class AddProductServlet extends ServletInterface {
+public class AddProductServlet extends Servlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) {
-        String name = request.getParameter("name");
-        long price = Long.parseLong(request.getParameter("price"));
-        DataBaseUtils.requestToDB(response, SQLUtils.addProduct(name, price), "OK", ResultType.EMPTY);
+        String name = request.getParameter(NAME);
+        long price = Long.parseLong(request.getParameter(PRICE));
+        DataBaseUtils.requestToDB(response, SQLUtils.addProduct(name, price), OK, ResultType.EMPTY);
     }
 }

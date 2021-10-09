@@ -6,13 +6,12 @@ import ru.akirakozov.sd.refactoring.utils.SQLUtils;
 import java.sql.*;
 
 import static org.junit.Assert.assertEquals;
+import static ru.akirakozov.sd.refactoring.resources.Resources.*;
 
 public class DatabaseTests {
 
     Statement stmt;
     Connection c;
-    String NAME = "name";
-    String PRICE = "price";
     String PROD1 = "Product1";
     String PROD2 = "Product2";
     int PRICE1 = 10;

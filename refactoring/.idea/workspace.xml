@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="create SQLUtils for SQL commands">
-      <change afterPath="$PROJECT_DIR$/src/tests/DatabaseTests.java" afterDir="false" />
+    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="add DatabaseTests for DB and SQLUtils">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/DataBaseUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/ResultType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/SQLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/SQLUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/AddProductServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/GetProductsServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/servlet/QueryServlet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +25,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -42,7 +49,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.DatabaseTests">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ru.akirakozov.sd.refactoring.Main" />
       <module name="refactoring" />
@@ -89,9 +96,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.DatabaseTests" />
         <item itemvalue="JUnit.ServerTests" />
-        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -107,7 +114,7 @@
       <workItem from="1633114077750" duration="332000" />
       <workItem from="1633257749324" duration="31000" />
       <workItem from="1633675772548" duration="5083000" />
-      <workItem from="1633784463089" duration="1711000" />
+      <workItem from="1633784463089" duration="11194000" />
     </task>
     <task id="LOCAL-00001" summary="add simple tests">
       <created>1633679734604</created>
@@ -123,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633680280409</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add DatabaseTests for DB and SQLUtils">
+      <created>1633786235871</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633786235871</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -144,6 +158,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add simple tests" />
     <MESSAGE value="create SQLUtils for SQL commands" />
-    <option name="LAST_COMMIT_MESSAGE" value="create SQLUtils for SQL commands" />
+    <MESSAGE value="add DatabaseTests for DB and SQLUtils" />
+    <option name="LAST_COMMIT_MESSAGE" value="add DatabaseTests for DB and SQLUtils" />
   </component>
 </project>

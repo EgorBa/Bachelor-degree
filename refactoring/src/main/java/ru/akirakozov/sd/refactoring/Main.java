@@ -6,6 +6,8 @@ import org.eclipse.jetty.servlet.ServletHolder;
 import ru.akirakozov.sd.refactoring.servlet.AddProductServlet;
 import ru.akirakozov.sd.refactoring.servlet.GetProductsServlet;
 import ru.akirakozov.sd.refactoring.servlet.QueryServlet;
+import ru.akirakozov.sd.refactoring.utils.DataBaseUtils;
+import ru.akirakozov.sd.refactoring.utils.ResultType;
 import ru.akirakozov.sd.refactoring.utils.SQLUtils;
 
 import java.sql.Connection;
@@ -17,12 +19,7 @@ import java.sql.Statement;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-            Statement stmt = c.createStatement();
-
-            stmt.executeUpdate(SQLUtils.createTable());
-            stmt.close();
-        }
+        DataBaseUtils.requestToDB(null, SQLUtils.createTable(), null, ResultType.EMPTY);
 
         Server server = new Server(8081);
 
@@ -31,8 +28,8 @@ public class Main {
         server.setHandler(context);
 
         context.addServlet(new ServletHolder(new AddProductServlet()), "/add-product");
-        context.addServlet(new ServletHolder(new GetProductsServlet()),"/get-products");
-        context.addServlet(new ServletHolder(new QueryServlet()),"/query");
+        context.addServlet(new ServletHolder(new GetProductsServlet()), "/get-products");
+        context.addServlet(new ServletHolder(new QueryServlet()), "/query");
 
         server.start();
         server.join();

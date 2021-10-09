@@ -1,5 +1,7 @@
 package ru.akirakozov.sd.refactoring.servlet;
 
+import ru.akirakozov.sd.refactoring.utils.DataBaseUtils;
+import ru.akirakozov.sd.refactoring.utils.ResultType;
 import ru.akirakozov.sd.refactoring.utils.SQLUtils;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,99 +17,36 @@ import java.sql.Statement;
  */
 public class QueryServlet extends ServletInterface {
     @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) {
         String command = request.getParameter("command");
 
-        if ("max".equals(command)) {
-            try {
-                try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                    Statement stmt = c.createStatement();
-                    ResultSet rs = stmt.executeQuery(SQLUtils.getExpensiveProduct());
-                    response.getWriter().println("<html><body>");
-                    response.getWriter().println("<h1>Product with max price: </h1>");
-
-                    while (rs.next()) {
-                        String  name = rs.getString("name");
-                        int price  = rs.getInt("price");
-                        response.getWriter().println(name + "\t" + price + "</br>");
-                    }
-                    response.getWriter().println("</body></html>");
-
-                    rs.close();
-                    stmt.close();
-                }
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        } else if ("min".equals(command)) {
-            try {
-                try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                    Statement stmt = c.createStatement();
-                    ResultSet rs = stmt.executeQuery(SQLUtils.getChipProduct());
-                    response.getWriter().println("<html><body>");
-                    response.getWriter().println("<h1>Product with min price: </h1>");
-
-                    while (rs.next()) {
-                        String  name = rs.getString("name");
-                        int price  = rs.getInt("price");
-                        response.getWriter().println(name + "\t" + price + "</br>");
-                    }
-                    response.getWriter().println("</body></html>");
-
-                    rs.close();
-                    stmt.close();
-                }
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        } else if ("sum".equals(command)) {
-            try {
-                try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                    Statement stmt = c.createStatement();
-                    ResultSet rs = stmt.executeQuery(SQLUtils.getSum());
-                    response.getWriter().println("<html><body>");
-                    response.getWriter().println("Summary price: ");
-
-                    if (rs.next()) {
-                        response.getWriter().println(rs.getInt(1));
-                    }
-                    response.getWriter().println("</body></html>");
-
-                    rs.close();
-                    stmt.close();
-                }
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        } else if ("count".equals(command)) {
-            try {
-                try (Connection c = DriverManager.getConnection("jdbc:sqlite:test.db")) {
-                    Statement stmt = c.createStatement();
-                    ResultSet rs = stmt.executeQuery(SQLUtils.getCount());
-                    response.getWriter().println("<html><body>");
-                    response.getWriter().println("Number of products: ");
-
-                    if (rs.next()) {
-                        response.getWriter().println(rs.getInt(1));
-                    }
-                    response.getWriter().println("</body></html>");
-
-                    rs.close();
-                    stmt.close();
-                }
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-        } else {
-            response.getWriter().println("Unknown command: " + command);
+        switch (command) {
+            case "max":
+                DataBaseUtils.requestToDB(response,
+                        SQLUtils.getExpensiveProduct(),
+                        "<h1>Product with max price: </h1>",
+                        ResultType.PRODUCT);
+                break;
+            case "min":
+                DataBaseUtils.requestToDB(response,
+                        SQLUtils.getChipProduct(),
+                        "<h1>Product with min price: </h1>",
+                        ResultType.PRODUCT);
+                break;
+            case "sum":
+                DataBaseUtils.requestToDB(response,
+                        SQLUtils.getSum(),
+                        "Summary price: ",
+                        ResultType.NUMBER);
+                break;
+            case "count":
+                DataBaseUtils.requestToDB(response,
+                        SQLUtils.getCount(),
+                        "Number of products: ",
+                        ResultType.NUMBER);
+                break;
+            default:
+                DataBaseUtils.showUnknownCommand(response, command);
         }
-
-        response.setContentType("text/html");
-        response.setStatus(HttpServletResponse.SC_OK);
     }
-
 }

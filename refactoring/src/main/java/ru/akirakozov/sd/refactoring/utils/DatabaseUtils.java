@@ -8,9 +8,15 @@ import java.sql.*;
 import static ru.akirakozov.sd.refactoring.resources.Resources.*;
 import static ru.akirakozov.sd.refactoring.utils.HTMLUtils.generateHTMLAnswer;
 
-public class DataBaseUtils {
+public class DatabaseUtils {
 
-    public static void requestToDB(HttpServletResponse response,
+    private String database;
+
+    public DatabaseUtils(String database){
+        this.database = database;
+    }
+
+    public void requestToDB(HttpServletResponse response,
                                    String SQLCommand,
                                    String title,
                                    ResultType resultType) {
@@ -33,7 +39,7 @@ public class DataBaseUtils {
         }
     }
 
-    public static void showUnknownCommand(HttpServletResponse response, String command) {
+    public void showUnknownCommand(HttpServletResponse response, String command) {
         try (PrintWriter out = response.getWriter()) {
             out.println(UNKNOWN_COMMAND + command);
         } catch (IOException e) {
@@ -44,9 +50,9 @@ public class DataBaseUtils {
         setOKStatus(response);
     }
 
-    private static Connection getConnection() {
+    private Connection getConnection() {
         try {
-            return DriverManager.getConnection(DATABASE);
+            return DriverManager.getConnection(database);
         } catch (SQLException e) {
             System.err.println("Can't open Database : " + DATABASE);
             e.printStackTrace();
@@ -54,11 +60,11 @@ public class DataBaseUtils {
         }
     }
 
-    private static void setOKStatus(HttpServletResponse response) {
+    private void setOKStatus(HttpServletResponse response) {
         response.setStatus(HttpServletResponse.SC_OK);
     }
 
-    private static void closeResultSet(ResultSet resultSet) {
+    private void closeResultSet(ResultSet resultSet) {
         if (resultSet != null) {
             try {
                 resultSet.close();

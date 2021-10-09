@@ -1,6 +1,8 @@
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import ru.akirakozov.sd.refactoring.utils.DatabaseUtils;
+import ru.akirakozov.sd.refactoring.utils.ResultType;
 import ru.akirakozov.sd.refactoring.utils.SQLUtils;
 
 import java.sql.*;
@@ -8,11 +10,12 @@ import java.sql.*;
 import static org.junit.Assert.assertEquals;
 import static ru.akirakozov.sd.refactoring.resources.Resources.*;
 
-public class DatabaseTests {
+public class DatabaseUtilsTests {
 
     Statement stmt;
     Connection c;
     ResultSet rs;
+    DatabaseUtils databaseUtils;
     String DATABASE = "jdbc:sqlite:testDB.db";
     String PROD1 = "Product1";
     String PROD2 = "Product2";
@@ -21,12 +24,13 @@ public class DatabaseTests {
 
     @Before
     public void prepare() throws SQLException {
+        databaseUtils = new DatabaseUtils(DATABASE);
+        databaseUtils.requestToDB(null, SQLUtils.dropAll(), null, ResultType.EMPTY);
+        databaseUtils.requestToDB(null, SQLUtils.createTable(), null, ResultType.EMPTY);
+        databaseUtils.requestToDB(null, SQLUtils.addProduct(PROD1, PRICE1), null, ResultType.EMPTY);
+        databaseUtils.requestToDB(null, SQLUtils.addProduct(PROD2, PRICE2), null, ResultType.EMPTY);
         c = DriverManager.getConnection(DATABASE);
         stmt = c.createStatement();
-        stmt.executeUpdate(SQLUtils.dropAll());
-        stmt.executeUpdate(SQLUtils.createTable());
-        stmt.executeUpdate(SQLUtils.addProduct(PROD1, PRICE1));
-        stmt.executeUpdate(SQLUtils.addProduct(PROD2, PRICE2));
     }
 
     @After

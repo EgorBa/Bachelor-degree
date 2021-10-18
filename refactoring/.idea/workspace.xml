@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="some unimportant fix">
-      <change afterPath="$PROJECT_DIR$/src/tests/HTMLTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/HTMLUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/akirakozov/sd/refactoring/utils/HTMLUtils.java" afterDir="false" />
-    </list>
+    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="add HTMLTests" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +124,7 @@
       <workItem from="1633257749324" duration="31000" />
       <workItem from="1633675772548" duration="5083000" />
       <workItem from="1633784463089" duration="16283000" />
-      <workItem from="1633801379776" duration="1089000" />
+      <workItem from="1633801379776" duration="1339000" />
     </task>
     <task id="LOCAL-00001" summary="add simple tests">
       <created>1633679734604</created>
@@ -200,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1633800775334</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add HTMLTests">
+      <created>1633802659661</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633802659661</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,6 +232,7 @@
     <MESSAGE value="add HTMLUtils" />
     <MESSAGE value="make methods of DatabaseUtils non static and add DatabaseUtilsTests &#10;the same structure with DatabaseTests, but adding elements doing DatabaseUtils" />
     <MESSAGE value="some unimportant fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="some unimportant fix" />
+    <MESSAGE value="add HTMLTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add HTMLTests" />
   </component>
 </project>

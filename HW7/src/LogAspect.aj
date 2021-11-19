@@ -4,8 +4,7 @@ import org.aspectj.lang.annotation.*;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-@Aspect
-public class LogAspect {
+public aspect LogAspect {
 
     private static final HashMap<String, LinkedList<Long>> map = new HashMap<>();
 

@@ -1,2 +1,1 @@
-# Bachelor-degree
-Bachelor's degree courses
+# Discrete Math

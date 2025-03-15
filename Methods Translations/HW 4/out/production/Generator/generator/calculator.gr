@@ -1,0 +1,52 @@
+grammar Calculator
+
+header {package calculator}
+
+fields [value = 0; comp = 0;]
+
+start :
+    expr { println(expr.value.toString()  +" "+expr.comp.toString() +"i") } ;
+
+expr :
+    l { res.value = l.value; res.comp = l.comp } ;
+
+l :
+    t x(t.value) (t.comp) { res.value = x.value; res.comp = x.comp } ;
+
+x[acc : Int; accComp : Int] :
+    PLUS t x(acc + t.value) (accComp + t.comp) { res.value = x.value; res.comp = x.comp } |
+    MINUS t x(acc - t.value) (accComp - t.comp) { res.value = x.value; res.comp = x.comp } |
+    EPSILON { res.value = acc; res.comp = accComp };
+
+t :
+    p y(p.value) (p.comp) { res.value = y.value; res.comp = y.comp } ;
+
+y[acc : Int; accComp : Int] :
+    MULTIPLY p y(acc * p.value - accComp * p.comp) (acc * p.comp - p.value * accComp) { res.value = y.value; res.comp = y.comp } |
+    DIVIDE p y(acc * p.value + accComp * p.comp/p.value*p.value + p.comp*p.comp) (accComp * p.value - acc * p.comp/p.value*p.value + p.comp*p.comp) { res.value = y.value; res.comp = y.comp  } |
+    EPSILON { res.value = acc; res.comp = accComp };
+
+p :
+    m { res.value = m.value; res.comp = m.comp } ;
+
+m :
+    MINUS v { res.value = -v.value; res.comp = -v.comp} |
+    v { res.value = v.value; res.comp = v.comp } ;
+
+v :
+    NUMBER { res.value = Integer.parseInt(NUMBER.text) } |
+    COMP { res.comp = Integer.parseInt(COMP.text.substring(0,COMP.text.length - 1)) } |
+    OPEN expr CLOSE { res.value = expr.value; res.comp = expr.comp } ;
+
+NUMBER : "\d+";
+COMP : "\d+i";
+WHITESPACES : "[\n\r\t ]+" -> skip;
+PLUS : "\+";
+MINUS : "-";
+MULTIPLY : "\*";
+DIVIDE : "/";
+OPEN : "\(";
+CLOSE : "\)";
+EQUALS : "=";
+NAME : "[a-zA-Z]+";
+SEMICOLON: ";" ;

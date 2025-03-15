@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="add HTMLTests" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1yutqDDN0NKFlhJwvqMzxZ64kFH" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/mockito-all-1.9.5.jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="JUnit.HTMLTests">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.akirakozov.sd.refactoring.Main" />
+      <module name="refactoring" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.akirakozov.sd.refactoring.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseUtilsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseUtilsTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HTMLTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HTMLTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HTMLTests.generaeHTMLTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="refactoring" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="HTMLTests" />
+      <option name="METHOD_NAME" value="generaeHTMLTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.HTMLTests" />
+        <item itemvalue="JUnit.HTMLTests.generaeHTMLTest" />
+        <item itemvalue="JUnit.DatabaseTests" />
+        <item itemvalue="JUnit.DatabaseUtilsTests" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5976e18e-1fd1-4c07-a29d-b357d19cdea2" name="Default Changelist" comment="" />
+      <created>1633113501132</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1633113501132</updated>
+      <workItem from="1633113505023" duration="172000" />
+      <workItem from="1633114077750" duration="332000" />
+      <workItem from="1633257749324" duration="31000" />
+      <workItem from="1633675772548" duration="5083000" />
+      <workItem from="1633784463089" duration="16283000" />
+      <workItem from="1633801379776" duration="1339000" />
+    </task>
+    <task id="LOCAL-00001" summary="add simple tests">
+      <created>1633679734604</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1633679734604</updated>
+    </task>
+    <task id="LOCAL-00002" summary="create SQLUtils for SQL commands">
+      <created>1633680280409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1633680280409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add DatabaseTests for DB and SQLUtils">
+      <created>1633786235871</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1633786235871</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add DatabaseUtils to extract common logic from methods with Database">
+      <created>1633795911992</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1633795911992</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add Resources and rename ServletInterface to Servlet">
+      <created>1633797068839</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1633797068839</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fix tests + some small fix">
+      <created>1633797724096</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1633797724096</updated>
+    </task>
+    <task id="LOCAL-00007" summary="add comments to Enum + some fix">
+      <created>1633798278206</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1633798278206</updated>
+    </task>
+    <task id="LOCAL-00008" summary="add HTMLUtils">
+      <created>1633798905978</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1633798905978</updated>
+    </task>
+    <task id="LOCAL-00009" summary="make methods of DatabaseUtils non static and add DatabaseUtilsTests &#10;the same structure with DatabaseTests, but adding elements doing DatabaseUtils">
+      <created>1633800670154</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1633800670154</updated>
+    </task>
+    <task id="LOCAL-00010" summary="some unimportant fix">
+      <created>1633800775334</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1633800775334</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add HTMLTests">
+      <created>1633802659661</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1633802659661</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add simple tests" />
+    <MESSAGE value="create SQLUtils for SQL commands" />
+    <MESSAGE value="add DatabaseTests for DB and SQLUtils" />
+    <MESSAGE value="add DatabaseUtils to extract common logic from methods with Database" />
+    <MESSAGE value="add Resources and rename ServletInterface to Servlet" />
+    <MESSAGE value="fix tests + some small fix" />
+    <MESSAGE value="add comments to Enum + some fix" />
+    <MESSAGE value="add HTMLUtils" />
+    <MESSAGE value="make methods of DatabaseUtils non static and add DatabaseUtilsTests &#10;the same structure with DatabaseTests, but adding elements doing DatabaseUtils" />
+    <MESSAGE value="some unimportant fix" />
+    <MESSAGE value="add HTMLTests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add HTMLTests" />
+  </component>
+</project>

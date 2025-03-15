@@ -1,0 +1,45 @@
+start: start
+accept: ac
+reject: rj
+blank: _
+start 0 -> start 0 <
+start 1 -> start 1 <
+start 2 -> start 2 <
+start _ -> print _ <
+print _ -> back 0 >
+back _ -> back _ >
+back 0 -> bock 0 >
+back 1 -> bock 1 >
+back 2 -> bock 2 >
+bock _ -> minus _ <
+bock 0 -> bock 0 >
+bock 1 -> bock 1 >
+bock 2 -> bock 2 >
+
+back'' 0 -> back'' 0 >
+back'' 1 -> back'' 1 >
+back'' _ -> back _ >
+
+minus 2 -> change 1 >
+minus 1 -> change 0 >
+minus 0 -> minus 0 <
+minus _ -> del _ >
+del 0 -> del _ >
+del _ -> del' _ <
+del' _ -> del' _ <
+del' 1 -> del'' 1 <
+del' 0 -> del'' 0 <
+del'' 0 -> del'' 0 <
+del'' 1 -> del'' 1 <
+del'' _ -> ac _ >
+
+change 0 -> change 2 >
+change _ -> add _ <
+
+add 1 -> add 1 <
+add 2 -> add 2 <
+add 0 -> add 0 <
+add _ -> add' _ <
+add' 0 -> back'' 1 >
+add' 1 -> add' 0 <
+add' _ -> back'' 1 >

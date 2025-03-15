@@ -1,0 +1,36 @@
+start: s
+accept: ac
+reject: rj
+blank: _
+s 0 -> s 0 >
+s 1 -> s 1 >
+s _ -> print _ <
+print _ -> ac _ >
+print 0 -> f0 p0 >
+f0 0 -> f0 0 >
+f0 1 -> f0 1 >
+f0 p0 -> f0 p0 >
+f0 p1 -> f0 p1 >
+f0 _ -> back 0 ^
+print 1 -> f1 p1 >
+f1 0 -> f1 0 >
+f1 1 -> f1 1 >
+f1 p0 -> f1 p0 >
+f1 p1 -> f1 p1 >
+f1 _ -> back 1 ^
+back 1 -> back 1 <
+back 0 -> back 0 <
+back p0 -> find p0 ^
+back p1 -> find p1 ^
+find p0 -> find p0 <
+find p1 -> find p1 <
+find 0 -> print 0 ^
+find 1 -> print 1 ^
+find _ -> rename _ >
+rename p0 -> rename 0 >
+rename p1 -> rename 1 >
+rename 0 -> goto 0 <
+rename 1 -> goto 1 <
+goto 1 -> goto 1 <
+goto 0 -> goto 0 <
+goto _ -> ac _ >

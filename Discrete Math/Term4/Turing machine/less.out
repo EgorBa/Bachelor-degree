@@ -1,0 +1,69 @@
+start: s0
+accept: ac
+reject: rj
+blank: _
+s0 1 -> to< p1 >
+s0 0 -> to< p0 >
+s0 < -> find0' < >
+
+find0' p0 -> find0' p0 >
+find0' p1 -> find0' p1 >
+find0' 0 -> ac 0 ^
+find0' 1 -> ac 1 ^
+find0' _ -> start' _ <
+
+start' p0 -> start' p0 <
+start' p1 -> start' p1 <
+start' < -> start' < <
+start' _ -> rename _ >
+rename p0 -> rename 0 >
+rename p1 -> rename 1 >
+rename 0 -> rename 0 >
+rename 1 -> rename 1 >
+rename < -> rename < >
+rename _ -> start _ <
+
+to< 0 -> to< 0 >
+to< 1 -> to< 1 >
+to< < -> s1 < >
+
+s1 1 -> from< p1 <
+s1 0 -> from< p0 <
+s1 p1 -> s1 p1 >
+s1 p0 -> s1 p0 >
+s1 _ -> rj _ ^
+
+from< p0 -> from< p0 <
+from< p1 -> from< p1 <
+from< < -> finds0 < <
+ 
+finds0 0 -> finds0 0 <
+finds0 1 -> finds0 1 <
+finds0 p1 -> s0 p1 >
+finds0 p0 -> s0 p0 >
+ 
+start 0 -> start 0 <
+start 1 -> start 1 <
+start < -> start < <
+start _ -> check _ >
+ 
+check 1 -> find1 _ >
+find1 1 -> find1 1 >
+find1 0 -> find1 0 >
+find1 < -> find11 < >
+find11 _ -> find11 _ >
+find11 1 -> go< _ <
+find11 0 -> rf _ ^
+ 
+check 0 -> find0 _ >
+find0 1 -> find0 1 >
+find0 0 -> find0 0 >
+find0 < -> find00 < >
+find00 _ -> find00 _ >
+find00 0 -> go< _ <
+find00 1 -> ac _ ^
+ 
+check < -> rj _ ^
+ 
+go< _ -> go< _ <
+go< < -> start < <
